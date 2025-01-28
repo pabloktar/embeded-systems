@@ -38,16 +38,9 @@ void count_frequency(int *tab, int *freq ){
 }
 
 void draw_histogram(int *freq) {
-    int maxnum_length = calc_int_length(MAXNUMBER);
-    int tab_length = maxnum_length + 2;
-
     for (int i = 0; i <= MAXNUMBER; i++){
         if (freq[i] != 0) {
-            int i_length = calc_int_length(i);
-            printf("%10d", i);
-            for (int j = 0; j < tab_length - i_length; j++){
-                printf(" ");
-            }
+            printf("%-4d", i);
             for (int j = 0; j < freq[i]; j++){
                 printf("x");
             }
@@ -56,20 +49,6 @@ void draw_histogram(int *freq) {
     }
 }
 
-int calc_int_length(int num){
-    if (num == 0){
-        return 1;
-    }
-
-    int length = 0;
-    while (num > 0) {
-        length ++;
-        num /= 10;
-    }
-    return length;
-}
-
-
 // ------ Main --------------------------
 // The main entry point for the program
 //
@@ -77,13 +56,13 @@ int calc_int_length(int num){
 // Please modify it accordingly
 int main (void){
     int table[MAX], n ;
-    int frequency[MAXNUMBER];
+    int frequency[MAXNUMBER+1];
     
     srand(time(0));
     create_random(table);
     count_frequency(table, frequency);
     draw_histogram(frequency);
 
-
+    return 0;
 }
 
