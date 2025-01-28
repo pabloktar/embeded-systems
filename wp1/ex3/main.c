@@ -7,6 +7,7 @@
 #include <string.h> // The string header file containts the necessary methods to interact with strings.
 #include <ctype.h> // The ctype header file is used to identify the the type of the inputs aswell as changing the parameter to another data type.
 #include <time.h>  // Time header used to get a seed for RNG
+#include <stdio.h>
 
 #define MAX_NUM_GUESSES 10  // max number of guesses given to user
 #define MAX_INPUT_NUM 100   // upper limit of generated number
