@@ -23,28 +23,28 @@ int calc_int_length(int num);
 
 // ------ Function definitions ----------
 void create_random(int *tab ){
-    for (int i = 0; i < MAX; i++){
-        tab[i] = rand() % (MAXNUMBER + 1);
+    for (int i = 0; i < MAX; i++){          // iterate over the indicies of *tab 
+        tab[i] = rand() % (MAXNUMBER + 1);  // initialise a cell in *tab with a random number in range 0..MAXNUMBER
     }
 }
 
 void count_frequency(int *tab, int *freq ){
-    for (int i = 0; i <= MAXNUMBER; i++){
-        freq[i] = 0;
+    for (int i = 0; i <= MAXNUMBER; i++){   // iterate over the indicies of *freq
+        freq[i] = 0;                        // initialise each cell in *freq with 0
     }
-    for (int i = 0; i < MAX; i++){
-        freq[tab[i]]++;
+    for (int i = 0; i < MAX; i++){          // iterate over the indicies of *tab
+        freq[tab[i]]++;                     // increment frequency of tab[i] 
     }
 }
 
 void draw_histogram(int *freq) {
-    for (int i = 0; i <= MAXNUMBER; i++){
-        if (freq[i] != 0) {
-            printf("%-4d", i);
-            for (int j = 0; j < freq[i]; j++){
-                printf("x");
+    for (int i = 0; i <= MAXNUMBER; i++){   // iterate over all numbers in range 0..MAXNUMBER
+        if (freq[i] != 0) {                 // check if the number appears at least once 
+            printf("%-4d", i);              // print number, aligning it to the left 
+            for (int j = 0; j < freq[i]; j++){// iterate freq[i] times ... 
+                printf("x");                // ... and print "x" each iteration 
             }
-            printf("\n");
+            printf("\n");                   // new line to end the bar 
         }
     }
 }
@@ -58,11 +58,12 @@ int main (void){
     int table[MAX], n ;
     int frequency[MAXNUMBER+1];
     
-    srand(time(0));
-    create_random(table);
-    count_frequency(table, frequency);
-    draw_histogram(frequency);
+    srand(time(0));                         // set a random seed for RNG
 
-    return 0;
+    create_random(table);                   // step 1: fill table with random numbers 
+    count_frequency(table, frequency);      // step 2: calculate numbers frequencies 
+    draw_histogram(frequency);              // step 3: draw frequency histogram 
+
+    return 0;                               // exit the program
 }
 
