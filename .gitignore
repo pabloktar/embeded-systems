@@ -54,3 +54,9 @@ dkms.conf
 
 # MacOs Specific
 .DS_Store
+
+
+#wp2 
+code
+decode
+personDatabase.dat
