@@ -141,25 +141,27 @@ void printfile(void) {
     if ((filePointer=fopen("personDatabase.dat", "rb")) == NULL) {
         printf("\n Can not read the file.");
         return;
+    } else {
+        while (fread(&temp, sizeof(PERSON), 1, filePointer)) {
+            printf("First name: %s\n", temp.firstname);
+            printf("Family name: %s\n", temp.famname);
+            printf("Person number: %s\n", temp.pers_number);
+        }
     }
 
-    while (fread(&temp, sizeof(PERSON), 1, filePointer)) {
-        printf("First name: %s\n", temp.firstname);
-        printf("Family name: %s\n", temp.famname);
-        printf("Person number: %s\n", temp.pers_number);
-    }
 
     fclose(filePointer);
 }
 
 void append_file(PERSON *inrecord){
     FILE *filePointer;
-    if ((filePointer = fopen("personDatabase.dat", "ab")) == NULL) {
-        printf("\n Can not append the file");
+    if ((filePointer = fopen("personDatabase.dat", "rb")) == NULL) {
+        printf("\n File does not exist");
         return;
+    } else {
+        filePointer = fopen("personDatabase.dat", "ab");
+        fwrite(inrecord, sizeof(PERSON), 1, filePointer);
     }
-    
-    fwrite(inrecord, sizeof(PERSON), 1, filePointer);
     
     fclose(filePointer);
 }
@@ -171,20 +173,19 @@ void search_by_firstname(char *name) {
     if ((filePointer=fopen("personDatabase.dat", "rb")) == NULL) {
         printf("\n Can not read the file.");
         return;
-    }
+    } else {
+        while (fread(&temp, sizeof(PERSON), 1, filePointer)) {
+            if (strcmp(temp.firstname, name) == 0 || strcmp(temp.famname, name) == 0) {
+                printf("\nFirst name: %s\n", temp.firstname);
+                printf("Family name: %s\n", temp.famname);
+                printf("Person number: %s\n", temp.pers_number);
+                personFound = 1;
+            } 
+        }
 
-    while (fread(&temp, sizeof(PERSON), 1, filePointer)) {
-        if (strcmp(temp.firstname, name) == 0 || strcmp(temp.famname, name) == 0) {
-            printf("\nFirst name: %s\n", temp.firstname);
-            printf("Family name: %s\n", temp.famname);
-            printf("Person number: %s\n", temp.pers_number);
-            personFound = 1;
-        } 
+        if (personFound == 0) {
+            printf("No person with the given firstname or familyname exists in the binary file.\n");
+        }
     }
-
-    if (personFound == 0) {
-        printf("No person with the given firstname or familyname exists in the binary file.\n");
-    }
-
     fclose(filePointer);
 }
