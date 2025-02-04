@@ -19,12 +19,16 @@ int decoder (int code, char* decode){
     }
     decode[ENGINE_ON] = (code & bit7) / bit7;
     if(decode[ENGINE_ON] > 1) return 1;
+
     decode[GEAR_POS] = (code & (bit6 | bit5 | bit4)) / bit4;
     if(decode[GEAR_POS] > 4) return 1;
+
     decode[KEY_POS] = (code & (bit3 | bit2)) / bit2;
     if(decode[KEY_POS] > 2) return 1;
+
     decode[BRAKE1] = (code & bit1) / bit1;
     if(decode[BRAKE1] > 1) return 1;
+
     decode[BRAKE2] = code & bit0;
     if(decode[BRAKE2] > 1) return 1;
     return 0;
