@@ -49,11 +49,11 @@ int main (int argc, char **argv){
 
     byte code = 0;
     
-    code = code + bit7 * intArgv[ENGINE_ON];
-    code = code + bit4 * intArgv[GEAR_POS];
-    code = code + bit2 * intArgv[KEY_POS];
-    code = code + bit1 * intArgv[BRAKE1];
-    code = code + bit0 * intArgv[BRAKE2];
+    code = code | (bit7 * intArgv[ENGINE_ON]);
+    code = code | (bit4 * intArgv[GEAR_POS]);
+    code = code | (bit2 * intArgv[KEY_POS]);
+    code = code | (bit1 * intArgv[BRAKE1]);
+    code = code | (bit0 * intArgv[BRAKE2]);
     
     printf("%X", code);
 
