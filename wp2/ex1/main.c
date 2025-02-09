@@ -26,6 +26,12 @@ void turn(ROBOT *rob);
 void move(ROBOT *rob);
 
 // --------------functions defjnition------------------
+// if if if 
+// if if if
+// if your mom
+// fuck if true
+//
+//
 
 int move_robot(ROBOT *rob, char *instructions){
     for (int i = 0; i < strlen(instructions); i++){
@@ -46,28 +52,39 @@ int move_robot(ROBOT *rob, char *instructions){
     return RUNNING;
 }
 
-void turn(ROBOT *rob){
-    if (rob->dir == N){
-        rob->dir = O;
-    } else if (rob->dir == O){
-        rob->dir = S;
-    } else if (rob->dir == S){
-        rob->dir = W;
-    } else if (rob->dir == W){
-        rob->dir = N;
-    }
-}
 
-void move(ROBOT *rob){
-    if (rob->dir == N){
-        (rob->ypos)++;
-    } else if (rob->dir == O){
-        (rob->xpos)++;
-    } else if (rob->dir == S){
-        (rob->ypos)--;
-    } else if (rob->dir == W){
-        (rob->xpos)--;
+some,words,here_hello,void turn(ROBOT *rob){
+    switch (rob->dir){
+        case N:
+            rob->dir = O;
+            break;
+        case O:
+            rob->dir = S;
+            break;
+        case S:
+            rob->dir = W;
+            break;
+        case W:
+            rob->dir = N;
+            break;
     }
+// Updates the robot position based on the direction its facing
+void move(ROBOT *rob){
+    switch (expression) {
+        case N:
+            (rob->ypos)++;
+            break;
+        case O:
+            (rob->xpos)++;
+            break;
+        case S:
+            (rob->ypos)--;
+            break;
+        case W:
+            (rob->xpos)--;
+            break;
+    }
+
 }
 
 
@@ -80,6 +97,11 @@ int main(){
         rob.dir = N;                                // initialise robot direction as North;
         printf("Enter starting position(x y): ");   
         scanf("%d %d", &rob.xpos, &rob.ypos);
+        if (rob.xpos < 0 || rob.xpos > 99 || rob.ypos < 0 || rob.ypos > 99) {
+            printf("ERROR: starting position coordinates must be in range 0..99");
+            continue;
+        }
+
         printf("Enter instructions: ");
         scanf("%19s", instructions); 
         status = move_robot(&rob, instructions);

@@ -60,3 +60,6 @@ dkms.conf
 code
 decode
 personDatabase.dat
+
+#Visual Studio Code Specific
+.vscode
