@@ -11,6 +11,11 @@ int main (void ){
         printf("invalid");                 // print error message;
         return 0;                               // exit program;
     }
+
+    if (n == 1 && m == 1) {                     // check the 1x1 matrix case;
+        printf("invalid");                      // print error message;
+        return 0;                               // exit program;
+    }
     
     int mtrx1[4][4], mtrx2[4][4];               // declare matrixes;
     printf("Input elements of matrix 1: ");     // prompt first matrix;
