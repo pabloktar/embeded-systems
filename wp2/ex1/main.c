@@ -93,6 +93,8 @@ int main(){
     
     while (status == RUNNING){                      // loop program while stuatus is RUNNING;
         rob.dir = N;                                // initialise robot direction as North;
+        rob.xpos = 0;
+        rob.ypos = 0;
         printf("Enter starting position(x y) or enter 'q' to quit: ");   // print prompt for coordinates;
         scanf("%d %d", &rob.xpos, &rob.ypos);       // scan coordinates;
         if (rob.xpos < 0 || rob.xpos > 99 || rob.ypos < 0 || rob.ypos > 99) { // validate coordinates

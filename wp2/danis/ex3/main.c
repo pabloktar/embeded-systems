@@ -1,8 +1,5 @@
-#include <stdlib.h> // 
 #include <stdio.h> // The I/O header file contains the necessary logic for printing and inputting information
-#include <string.h> // 
-#include <ctype.h> //
-
+#include <string.h> // This header file contains the necessary logic for handling strings
 
 #define MAX_NAME_SIZE 20 // Define maximum size allowed for family name and first name
 #define MAX_PERS_NUM_SIZE 13 // Define maximum size allowed for personal number
