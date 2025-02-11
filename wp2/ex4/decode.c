@@ -17,7 +17,7 @@ enum DATA{ENGINE_ON = 0, GEAR_POS = 1, KEY_POS = 2, BRAKE1 = 3, BRAKE2 = 4};// e
 
 // Decoder function. Takes the code in and writes the decoded data in the decode array;
 int decoder (int code, char* decode){
-    if(code < 0 | code > 255){                              // verify that code fits a byte;
+    if((code < 0) | (code > 255)){                              // verify that code fits a byte;
         return 1;                                           // exit function with error code; 
     }
     decode[ENGINE_ON] = (code & bit7) / bit7;               // decode ENIGINE_ON bit;
@@ -62,7 +62,7 @@ int main (int argc, char **argv){
     }
     int code = (int) strtol(argv[1], NULL, 16);         // convert argument to int;
     
-    if (code == 0 && strcmp(argv[1], "0")) {            // verify the code;
+    if (code == 0 && !(strcmp(argv[1], "0"))) {            // verify the code;
         printf("ERROR: bad input.");                    // print error message;
         return 2;                                       // exit the program with error code;
     }
