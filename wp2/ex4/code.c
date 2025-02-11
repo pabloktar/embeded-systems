@@ -1,3 +1,7 @@
+// (C) Pavlo Ovchynnykov, Stefan Tram, Danis Music, group 19 (2025)
+// Work package 2
+// Exercise 4
+// Submission code: 246649
 #include "stdlib.h"
 #include "stdio.h"
 #include "string.h"

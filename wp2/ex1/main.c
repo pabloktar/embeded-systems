@@ -1,3 +1,7 @@
+// (C) Pavlo Ovchynnykov, Stefan Tram, Danis Music, group 19 (2025)
+// Work package 2
+// Exercise 1
+// Submission code: 246649
 #include "stdio.h"
 #include "string.h"
 
@@ -51,6 +55,7 @@ int move_robot(ROBOT *rob, char *instructions){
 
 
 void turn(ROBOT *rob){
+    // Improve this with %
     switch (rob->dir){      // switch robot's direction
         case N:             // on North...
             rob->dir = O;   // turn to East;

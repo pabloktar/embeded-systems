@@ -1,3 +1,7 @@
+// (C) Pavlo Ovchynnykov, Stefan Tram, Danis Music, group 19 (2025)
+// Work package 2
+// Exercise 2
+// Submission code: 246649
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -40,7 +44,8 @@ int main(int argc, char *argv[])
         printf("\n Post nr %d : %d" , nr++, act_post->number); // Print the current node's index and value, then increment 'nr'
         act_post = act_post->next; // Move to the next node
     }
-
+    
+    printf("\n");
     // --- Free the allocated memory ---
     while((act_post = head) != NULL){ // Loop through the list and free allocated memory
         head = act_post->next; // Move head to the next node

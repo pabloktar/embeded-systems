@@ -1,3 +1,7 @@
+// (C) Pavlo Ovchynnykov, Stefan Tram, Danis Music, group 19 (2025)
+// Work package 2
+// Exercise 3
+// Submission code: 246649
 #include <stdio.h> // The I/O header file contains the necessary logic for printing and inputting information
 #include <string.h> // This header file contains the necessary logic for handling strings
 
