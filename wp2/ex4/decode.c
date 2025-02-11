@@ -60,9 +60,10 @@ int main (int argc, char **argv){
         printf("ERROR: too many or too little arguments.");// print the error message;
         return 2;                                       // exit the program with error code;
     }
-    int code = (int) strtol(argv[1], NULL, 16);         // convert argument to int;
+    char *endptr;
+    int code = (int) strtol(argv[1], &endptr, 16);         // convert argument to int;
     
-    if (code == 0 && !(strcmp(argv[1], "0"))) {            // verify the code;
+    if (*endptr != '\0' || argv[1] == endptr) {            // verify the code;
         printf("ERROR: bad input.");                    // print error message;
         return 2;                                       // exit the program with error code;
     }
