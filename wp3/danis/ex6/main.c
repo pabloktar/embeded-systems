@@ -1,34 +1,39 @@
-#include <stdio.h>
-#include <string.h>
+// (C) Pavlo Ovchynnykov, Stefan Tram, Danis Music, group 19 (2025)
+// Work package 3
+// Exercise 6
+// Submission code: 631050
+#include <stdio.h> // The I/O header file contains the necessary logic for printing and inputting information
+#include <string.h> // The string header file containts the necessary methods to interact with strings.
 
-#define MAX_CHAR_LIMIT 20
+#define MAX_CHAR_LIMIT 20 // Define character limit for input from console or file
 
-int check_input(char *userinput);
+
+// --- Function Prototypes ---
+int check_input(char *userinput); 
 void copyString(char *stringCopyTo, char *stringCopyFrom);
 void clearstdin(void); // Clears the buffer of remaining characters
 
 
 int main(int argc, char **argv) {
-    char inputString[MAX_CHAR_LIMIT];
-    char copy[MAX_CHAR_LIMIT];
+    char inputString[MAX_CHAR_LIMIT]; // Declare string to store input
+    char copy[MAX_CHAR_LIMIT]; // Declare string to store copy
     
-    if (fgets(inputString, MAX_CHAR_LIMIT, stdin) == NULL) {
-        printf("Error, cannot parse input.\n");
-        return 0;
+    if (fgets(inputString, MAX_CHAR_LIMIT, stdin) == NULL) { // If input cannot be read
+        printf("Error, cannot parse input.\n"); // Show user error message
+        return 0; // Exit the program
     } 
 
-    if (check_input(inputString)) {
-        return 0;
+    if (check_input(inputString)) { // Check if the input is not valid
+        return 0; // Exit the program
     }
     
+    strcpy(copy, inputString); // Use inbuild string copy method
+    printf("Original: %s | Copy: %s\n", inputString, copy); // Print out the original and the copy
     
-    strcpy(copy, inputString);
-    printf("Original: %s | Copy: %s\n", inputString, copy);
-    
-    copyString(copy, inputString);
-    printf("Custom string copy method\n");
-    printf("Original: %s | Copy: %s\n", inputString, copy);
-    return 0;
+    copyString(copy, inputString); // Use custom string copy method
+    printf("Custom string copy method\n"); // Indicate that the custom method is being utilized
+    printf("Original: %s | Copy: %s\n", inputString, copy); // Print out the original and the copy
+    return 0; // Exit the program
 }
 
 // Clears the buffer of characters 
@@ -56,10 +61,10 @@ int check_input(char *userinput) {
 }
 
 void copyString(char *stringCopyTo, char *stringCopyFrom) {
-    int i;
-    for (i = 0; i < strlen(stringCopyFrom); i++) {
-        stringCopyTo[i] = stringCopyFrom[i];
+    int i; // Declare i outside of loop to use it to add null terminator at the end
+    for (int i = 0; i < strlen(stringCopyFrom); i++) { // Iterate over characters in the string to copy from
+        stringCopyTo[i] = stringCopyFrom[i]; // Add value from string to copy from
     }
-    stringCopyTo[i] = '\0';
+    stringCopyTo[i] = '\0'; // Add null terminator
     
 }
