@@ -27,8 +27,8 @@ void printSearch(int tab[], int size, int num){
 }
 
 int main(void){
-    int test[] = {1, 2, 34, 5, 67, 3, 23, 12, 13, 10};
-    int size = 10;
+    int test[] = {1, 2, 34, 5, 67, 3, 23, 12, 13, 10}; // test array;
+    int size = 10;                                      // test array size;
     
     printf("Starting array: ");     // 
     printArray(test, size);         // print starting array;
